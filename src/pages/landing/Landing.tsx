@@ -1,6 +1,7 @@
 import instagramImg from "/assets/instagram.png";
 import linkedinImg from "/assets/linkedin.png";
 import githubImg from "/assets/github.png";
+import gmailImg from "/assets/gmail.png";
 import fishImg from "/assets/fish.png";
 import catGreenImg from "/assets/cat-green.png";
 import catRedImg from "/assets/cat-red.png";
@@ -41,6 +42,12 @@ const mainLinks: LinkItem[] = [
     href: "https://github.com/Andrew-gzz",
     icon: githubImg,
   },
+  {
+    label: "Email",
+    description: "andres.rafael.gs@gmail.com",
+    href: "mailto:andres.rafael.gs@gmail.com?subject=Contacto%20por%20Purrrge%20Crusade&body=Hola%20Andrés,%20vi%20tu%20proyecto%20Purrrge%20Crusade%20en%20Expo%20LMAD%20y%20me%20gustaría%20contactarte.",
+    icon: gmailImg,
+  },
 ];
 
 const videos: VideoItem[] = [
@@ -50,9 +57,9 @@ const videos: VideoItem[] = [
     embedUrl: "https://www.youtube.com/embed/gnBhrtx5wRw?si=rs4b81DH6CIyJsTx",
   },
   {
-    title: "Gameplay",
+    title: "Trailer",
     description: "Una muestra rápida del proyecto para Expo LMAD.",
-    embedUrl: "https://www.youtube.com/embed/gPkhTBIsAMI?si=aJ79MZCncS_80n5-",
+    embedUrl: "https://www.youtube.com/embed/CdMKVVPndIM?si=8BLwDBjiq1w06xhW",
   },
 ];
 
@@ -121,8 +128,12 @@ export default function Landing() {
                 <a
                   key={item.label}
                   href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
+                  target={
+                    item.href.startsWith("mailto:") ? undefined : "_blank"
+                  }
+                  rel={
+                    item.href.startsWith("mailto:") ? undefined : "noreferrer"
+                  }
                   className={`link-card ${
                     item.variant === "primary" ? "link-card-featured" : ""
                   }`}
@@ -282,7 +293,7 @@ export default function Landing() {
         <div className="container">
           <p className="mb-1">Presentando en Expo LMAD 2026</p>
           <small>
-            Purrrge Crusade · Pagina desarrollada con React y Bootstrap
+            Purrrge Crusade · Página desarrollada con React y Bootstrap
           </small>
         </div>
       </footer>
