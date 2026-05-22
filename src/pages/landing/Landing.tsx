@@ -1,3 +1,12 @@
+import instagramImg from "/assets/instagram.png";
+import linkedinImg from "/assets/linkedin.png";
+import githubImg from "/assets/github.png";
+import fishImg from "/assets/fish.png";
+import catGreenImg from "/assets/cat-green.png";
+import catRedImg from "/assets/cat-red.png";
+import catWizardImg from "/assets/cat-wizard.png";
+import blueCatImg from "/assets/blue-cat.png";
+
 type LinkItem = {
   label: string;
   description: string;
@@ -17,20 +26,20 @@ const mainLinks: LinkItem[] = [
     label: "Instagram",
     description: "Sígueme y mira avances del proyecto",
     href: "https://www.instagram.com/0andrew_4/",
-    icon: "/assets/instagram.png",
+    icon: instagramImg,
     variant: "primary",
   },
   {
     label: "LinkedIn",
     description: "Conecta conmigo profesionalmente",
     href: "https://www.linkedin.com/in/andres-gzz",
-    icon: "/assets/linkedin.png",
+    icon: linkedinImg,
   },
   {
     label: "GitHub",
     description: "Revisa mis proyectos y código",
     href: "https://github.com/Andrew-gzz",
-    icon: "/assets/github.png",
+    icon: githubImg,
   },
 ];
 
@@ -48,13 +57,14 @@ const videos: VideoItem[] = [
 ];
 
 const teamMembers = [
-  { name: "Areli", image: "/assets/fish.PNG" },
-  { name: "Andrés", image: "/assets/cat-green.PNG" },
-  { name: "Josh", image: "/assets/cat-red.PNG" },
-  { name: "Jesús", image: "/assets/cat-wizard.PNG" },
-  { name: "Rey", image: "/assets/blue-cat.PNG" },
-  { name: "Eliud", image: "/assets/fish.PNG" },
+  { name: "Areli", image: fishImg },
+  { name: "Andrés", image: catGreenImg },
+  { name: "Josh", image: catRedImg },
+  { name: "Jesús", image: catWizardImg },
+  { name: "Rey", image: blueCatImg },
+  { name: "Eliud", image: fishImg },
 ];
+
 export default function Landing() {
   return (
     <main className="purrge-page">
