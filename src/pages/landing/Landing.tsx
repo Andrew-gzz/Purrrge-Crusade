@@ -17,20 +17,20 @@ const mainLinks: LinkItem[] = [
     label: "Instagram",
     description: "Sígueme y mira avances del proyecto",
     href: "https://www.instagram.com/0andrew_4/",
-    icon: "◎",
+    icon: "/assets/instagram.png",
     variant: "primary",
   },
   {
     label: "LinkedIn",
     description: "Conecta conmigo profesionalmente",
     href: "https://www.linkedin.com/in/andres-gzz",
-    icon: "in",
+    icon: "/assets/linkedin.png",
   },
   {
     label: "GitHub",
     description: "Revisa mis proyectos y código",
     href: "https://github.com/Andrew-gzz",
-    icon: "</>",
+    icon: "/assets/github.png",
   },
 ];
 
@@ -41,21 +41,20 @@ const videos: VideoItem[] = [
     embedUrl: "https://www.youtube.com/embed/gnBhrtx5wRw?si=rs4b81DH6CIyJsTx",
   },
   {
-    title: "Trailer",
+    title: "Gameplay",
     description: "Una muestra rápida del proyecto para Expo LMAD.",
     embedUrl: "https://www.youtube.com/embed/gPkhTBIsAMI?si=aJ79MZCncS_80n5-",
   },
 ];
 
 const teamMembers = [
-  "Areli Sarai Hernández Franco",
-  "Andrés Rafael González Sierra",
-  "Jesús Emmanuel Vital García",
-  "Joshua Salvador Torres González",
-  "Jock Rey Reyes Aguirre",
-  "Eliud Asael Sánchez Ávila",
+  { name: "Areli", image: "/assets/fish.PNG" },
+  { name: "Andrés", image: "/assets/cat-green.PNG" },
+  { name: "Josh", image: "/assets/cat-red.PNG" },
+  { name: "Jesús", image: "/assets/cat-wizard.PNG" },
+  { name: "Rey", image: "/assets/blue-cat.PNG" },
+  { name: "Eliud", image: "/assets/fish.PNG" },
 ];
-
 export default function Landing() {
   return (
     <main className="purrge-page">
@@ -64,12 +63,6 @@ export default function Landing() {
           <div className="row justify-content-center">
             <div className="col-12 col-lg-9 col-xl-8">
               <article className="hero-card text-center">
-                <img
-                  src="/assets/purrge-logo.png"
-                  alt="Purrrge Crusade logo"
-                  className="game-logo mb-4"
-                />
-
                 <p className="event-badge mb-3">EXPO LMAD 2026</p>
 
                 <h1 className="game-title">Purrrge Crusade</h1>
@@ -124,7 +117,13 @@ export default function Landing() {
                     item.variant === "primary" ? "link-card-featured" : ""
                   }`}
                 >
-                  <div className="link-icon">{item.icon}</div>
+                  <div className="link-icon">
+                    {item.icon.startsWith("/") ? (
+                      <img src={item.icon} alt="" aria-hidden="true" />
+                    ) : (
+                      item.icon
+                    )}
+                  </div>
 
                   <div className="link-content">
                     <h2>{item.label}</h2>
@@ -247,12 +246,20 @@ export default function Landing() {
             <div className="col-12 col-lg-8 col-xl-7">
               <div className="content-card">
                 <p className="section-kicker">Equipo</p>
-
                 <h2>Creado en colaboración con:</h2>
 
-                <div className="team-grid">
+                <div className="row g-3 mt-2">
                   {teamMembers.map((member) => (
-                    <span key={member}>{member}</span>
+                    <div key={member.name} className="col-4">
+                      <div className="team-member-card">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="team-member-img"
+                        />
+                        <span>{member.name}</span>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -264,7 +271,9 @@ export default function Landing() {
       <footer className="footer-section text-center">
         <div className="container">
           <p className="mb-1">Presentando en Expo LMAD 2026</p>
-          <small>Purrrge Crusade · Game Development Project</small>
+          <small>
+            Purrrge Crusade · Pagina desarrollada con React y Bootstrap
+          </small>
         </div>
       </footer>
     </main>

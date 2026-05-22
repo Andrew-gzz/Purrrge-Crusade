@@ -6,10 +6,11 @@ function Layout() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundImage: background,
+        backgroundImage: `url(${background})`, // ← esto faltaba
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed", // ← opcional, efecto parallax
       }}
     >
       <Outlet />
