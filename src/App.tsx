@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Landing from "./pages/landing/Landing";
 import Layout from "./components/Layout";

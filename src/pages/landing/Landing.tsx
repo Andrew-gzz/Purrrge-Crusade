@@ -89,7 +89,7 @@ export default function Landing() {
                   </a>
 
                   <a
-                    href="https://www.instagram.com/0andrew_4/"
+                    href="https://www.linkedin.com/in/andres-gzz"
                     target="_blank"
                     rel="noreferrer"
                     className="btn btn-purrge-outline mb-2"
